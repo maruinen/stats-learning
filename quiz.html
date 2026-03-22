@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>クイズ画面 - 統計学学習ツール</title>
+    <link rel="stylesheet" href="style.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="data/items.js"></script>
+    <script src="data/quizzes.js"></script>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="index.html" class="nav-link">← 戻る</a>
+        </nav>
+        
+        <div id="quiz-screen" class="quiz-container">
+            <h1 id="quiz-title">クイズ読み込み中...</h1>
+            <p id="question-text">読み込み中...</p>
+
+            <div id="options-container" class="options">
+                <!-- Options will be generated here -->
+            </div>
+
+            <div id="feedback" class="hidden" style="margin-top: 20px;">
+                <p id="feedback-text" style="font-weight: bold; font-size: 1.2rem;"></p>
+                <div id="explanation-box" style="background: #f9f9f9; padding: 15px; border-radius: 8px; border-left: 5px solid var(--primary-color); margin-bottom: 20px;">
+                    <p id="explanation" style="margin: 0;"></p>
+                </div>
+                <button id="next-btn" class="btn">次の問題へ</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let quizQueue = [];
+        let itemQuizzes = [];
+        let itemId = null;
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function init() {
+            const urlParams = new URLSearchParams(window.location.search);
+            itemId = urlParams.get('id');
+
+            if (typeof STATS_DATA === 'undefined' || typeof QUIZ_DATA === 'undefined') {
+                console.error("Data not loaded.");
+                return;
+            }
+            
+            const item = [...STATS_DATA.distributions, ...STATS_DATA.functions].find(i => i.id === itemId);
+            if (!item) {
+                window.location.href = 'index.html';
+                return;
+            }
+
+            document.getElementById('quiz-title').innerText = `${item.name} に関するクイズ`;
+            
+            // 対象項目の全クイズを取得
+            itemQuizzes = QUIZ_DATA.filter(q => q.itemId === itemId);
+            
+            if (itemQuizzes.length === 0) {
+                document.getElementById('question-text').innerText = "この項目のクイズは準備中です。";
+                return;
+            }
+
+            loadNextQuiz();
+        }
+
+        function loadNextQuiz() {
+            // キューが空になったら、全問を再シャッフルして補充（ループ）
+            if (quizQueue.length === 0) {
+                quizQueue = shuffleArray([...itemQuizzes]);
+            }
+
+            const quiz = quizQueue.shift();
+            showQuiz(quiz);
+        }
+
+        function showQuiz(quiz) {
+            const feedback = document.getElementById('feedback');
+            feedback.classList.add('hidden');
+            
+            document.getElementById('question-text').innerText = quiz.question;
+
+            // 選択肢の準備
+            let options = quiz.options.map((text, index) => ({
+                text: text,
+                isCorrect: index === quiz.answerIndex
+            }));
+
+            // 選択肢もシャッフル
+            shuffleArray(options);
+
+            const container = document.getElementById('options-container');
+            container.innerHTML = '';
+            
+            options.forEach(opt => {
+                const btn = document.createElement('div');
+                btn.className = 'option';
+                btn.style.fontSize = '1.1rem';
+                btn.innerHTML = opt.text;
+                btn.onclick = () => {
+                    if (!feedback.classList.contains('hidden')) return;
+                    checkAnswer(opt.isCorrect, quiz.explanation);
+                };
+                container.appendChild(btn);
+            });
+
+            if (window.MathJax) {
+                MathJax.typesetPromise([document.getElementById('quiz-screen')]);
+            }
+        }
+
+        function checkAnswer(isCorrect, explanationText) {
+            const feedback = document.getElementById('feedback');
+            const feedbackText = document.getElementById('feedback-text');
+            const explanation = document.getElementById('explanation');
+            const nextBtn = document.getElementById('next-btn');
+
+            feedback.classList.remove('hidden');
+            if (isCorrect) {
+                feedbackText.innerText = "⭕ 正解！";
+                feedbackText.style.color = "#4caf50";
+            } else {
+                feedbackText.innerText = "❌ 不正解...";
+                feedbackText.style.color = "#f44336";
+            }
+            explanation.innerHTML = explanationText;
+            
+            nextBtn.onclick = () => {
+                loadNextQuiz();
+            };
+
+            if (window.MathJax) {
+                MathJax.typesetPromise([explanation]);
+            }
+        }
+
+        window.addEventListener('load', init);
+    </script>
+</body>
+</html>

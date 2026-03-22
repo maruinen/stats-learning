@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>統計学学習ツール</title>
+    <link rel="stylesheet" href="style.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="data/items.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>統計学学習ツール</h1>
+        <p style="text-align: center;">学習したい項目を選択してください。</p>
+        
+        <div id="distribution-list" class="card-grid">
+            <!-- Distributions will be loaded here -->
+        </div>
+
+        <h2 style="margin-top: 50px; color: var(--primary-color);">数学的基礎・関数</h2>
+        <div id="function-list" class="card-grid">
+            <!-- Functions will be loaded here -->
+        </div>
+    </div>
+
+    <script>
+        function loadItems() {
+            // STATS_DATA is loaded from data/items.js
+            if (typeof STATS_DATA === 'undefined') {
+                console.error("STATS_DATA is not loaded.");
+                return;
+            }
+
+            const distContainer = document.getElementById('distribution-list');
+            const funcContainer = document.getElementById('function-list');
+
+            STATS_DATA.distributions.forEach(item => {
+                const card = createCard(item, 'distribution');
+                distContainer.appendChild(card);
+            });
+
+            STATS_DATA.functions.forEach(item => {
+                const card = createCard(item, 'function');
+                funcContainer.appendChild(card);
+            });
+        }
+
+        function createCard(item, type) {
+            const div = document.createElement('div');
+            div.className = 'card';
+            div.innerHTML = `
+                <h2>${item.name}</h2>
+                <p>${item.description}</p>
+                <div style="display: flex; gap: 10px; margin-top: 15px;">
+                    <button class="btn" onclick="location.href='study.html?id=${item.id}'">学習する</button>
+                    <button class="btn" style="background-color: var(--accent-color);" onclick="location.href='quiz.html?id=${item.id}'">クイズ</button>
+                </div>
+            `;
+            return div;
+        }
+
+        // Run after everything is loaded
+        window.addEventListener('load', loadItems);
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+{
+  "distributions": [
+    {
+      "id": "binomial",
+      "name": "二項分布 (Binomial Distribution)",
+      "formula": "P(X=k) = \\binom{n}{k}p^k(1-p)^{n-k}",
+      "mean": "np",
+      "variance": "np(1-p)",
+      "mgf": "(pe^t + 1-p)^n",
+      "description": "成功確率 p の独立な試行を n 回行ったときの成功回数 k の分布。"
+    },
+    {
+      "id": "poisson",
+      "name": "ポアソン分布 (Poisson Distribution)",
+      "formula": "P(X=k) = \\frac{\\lambda^k e^{-\\lambda}}{k!}",
+      "mean": "\\lambda",
+      "variance": "\\lambda",
+      "mgf": "e^{\\lambda(e^t-1)}",
+      "description": "単位時間または単位空間に平均 λ 回発生する事象の回数 k の分布。"
+    },
+    {
+      "id": "normal",
+      "name": "正規分布 (Normal Distribution)",
+      "formula": "f(x) = \\frac{1}{\\sqrt{2\\pi\\sigma^2}} \\exp\\left(-\\frac{(x-\\mu)^2}{2\\sigma^2}\\right)",
+      "mean": "\\mu",
+      "variance": "\\sigma^2",
+      "mgf": "\\exp\\left(\\mu t + \\frac{\\sigma^2 t^2}{2}\\right)",
+      "description": "平均 μ、分散 σ² を持つ連続確率分布。"
+    },
+    {
+      "id": "exponential",
+      "name": "指数分布 (Exponential Distribution)",
+      "formula": "f(x) = \\lambda e^{-\\lambda x} \\quad (x \\ge 0)",
+      "mean": "1/\\lambda",
+      "variance": "1/\\lambda^2",
+      "mgf": "\\frac{\\lambda}{\\lambda-t} \\quad (t < \\lambda)",
+      "description": "特定の事象が発生するまでの時間間隔を表す分布。"
+    }
+  ],
+  "functions": [
+    {
+      "id": "gamma_function",
+      "name": "ガンマ関数 (Gamma Function)",
+      "formula": "\\Gamma(z) = \\int_0^\\infty x^{z-1} e^{-x} dx",
+      "description": "階乗の概念を複素数へと拡張した関数。"
+    },
+    {
+      "id": "beta_function",
+      "name": "ベータ関数 (Beta Function)",
+      "formula": "B(x, y) = \\int_0^1 t^{x-1}(1-t)^{y-1} dt",
+      "description": "2つの正の実数引数を持つ特殊関数。"
+    },
+    {
+      "id": "beta_gamma_relation",
+      "name": "ベータ関数とガンマ関数の関係",
+      "formula": "B(x, y) = \\frac{\\Gamma(x)\\Gamma(y)}{\\Gamma(x+y)}",
+      "description": "ベータ関数とガンマ関数の重要な接続式。"
+    }
+  ]
+}
