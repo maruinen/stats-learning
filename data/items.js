@@ -213,6 +213,12 @@ const STATS_DATA = {
       "description": "二項係数を一般化したような関数。"
     },
     {
+      "id": "beta_gamma_relation",
+      "name": "ベータ関数とガンマ関数の関係",
+      "formula": "B(x, y) = \\frac{\\Gamma(x)\\Gamma(y)}{\\Gamma(x+y)}",
+      "description": "ベータ関数をガンマ関数を用いて表す重要な公式。"
+    },
+    {
       "id": "standard_error",
       "name": "標本確率の標準誤差 (SE)",
       "formula": "SE = \\frac{\\sigma}{\\sqrt{n}}",

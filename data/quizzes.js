@@ -155,6 +155,11 @@ const QUIZ_DATA = [
     { id: "q_bef_02", itemId: "beta_function", question: "B(1, 1) の値は？", options: ["1", "0", "1/2", "π"], answerIndex: 0, explanation: "∫[0,1] 1 dt = 1 です。" },
     { id: "q_bef_03", itemId: "beta_function", question: "ベータ関数をガンマ関数で表すと？", options: ["Γ(x)Γ(y) / Γ(x+y)", "Γ(x+y) / Γ(x)Γ(y)", "Γ(x)Γ(y)", "Γ(xy)"], answerIndex: 0, explanation: "B(x, y) = Γ(x)Γ(y) / Γ(x+y) です。" },
 
+    // --- ベータ関数とガンマ関数の関係 (beta_gamma_relation) ---
+    { id: "q_bgr_01", itemId: "beta_gamma_relation", question: "B(x, y) をガンマ関数で表す公式はどれですか？", options: ["\\( \\frac{\\Gamma(x)\\Gamma(y)}{\\Gamma(x+y)} \\)", "\\( \\frac{\\Gamma(x+y)}{\\Gamma(x)\\Gamma(y)} \\)", "\\( \\Gamma(x)\\Gamma(y) \\)", "\\( \\frac{\\Gamma(x)\\Gamma(y)}{\\Gamma(x+y-1)} \\)"], answerIndex: 0, explanation: "ベータ関数とガンマ関数の関係式は \\( B(x, y) = \\frac{\\Gamma(x)\\Gamma(y)}{\\Gamma(x+y)} \\) です。" },
+    { id: "q_bgr_02", itemId: "beta_gamma_relation", question: "B(3, 2) をガンマ関数で計算する場合、分子はどうなりますか？", options: ["2! * 1!", "3! * 2!", "Γ(5)", "B(2, 3)"], answerIndex: 0, explanation: "B(3, 2) = Γ(3)Γ(2)/Γ(5) なので、分子は Γ(3)Γ(2) = 2! * 1! です。" },
+    { id: "q_bgr_03", itemId: "beta_gamma_relation", question: "ベータ関数 Be(α, β) の正規化定数としてこの関係が使われる分布は？", options: ["ベータ分布", "ガンマ分布", "正規分布", "二項分布"], answerIndex: 0, explanation: "ベータ分布の密度関数の分母にある B(α, β) を計算する際に非常に重要です。" },
+
     // --- 標準誤差 (standard_error) ---
     { id: "q_se_01", itemId: "standard_error", question: "標準誤差 (SE) の意味は？", options: ["推定量の標準偏差", "個々のデータのバラツキ", "測定のミス", "最大誤差"], answerIndex: 0, explanation: "統計量（平均など）がどの程度バラつくかを示します。" },
     { id: "q_se_02", itemId: "standard_error", question: "サンプルサイズ n を4倍にすると標準誤差は？", options: ["1/2倍になる", "1/4倍になる", "2倍になる", "変わらない"], answerIndex: 0, explanation: "分母が √n なので √4=2 で割ります。" },
