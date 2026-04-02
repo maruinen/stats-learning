@@ -1,11 +1,16 @@
 :root {
-    --primary-color: #4a90e2;
-    --bg-color: #f5f7fa;
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --bg-color: #f8fafc;
     --card-bg: #ffffff;
-    --text-color: #333333;
-    --accent-color: #e67e22;
-    --border-radius: 12px;
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --text-color: #1e293b;
+    --text-muted: #64748b;
+    --accent-color: #f59e0b;
+    --success-color: #10b981;
+    --error-color: #ef4444;
+    --border-radius: 16px;
+    --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -13,87 +18,154 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     margin: 0;
-    padding: 20px;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    line-height: 1.6;
 }
 
 .container {
-    max-width: 800px;
-    width: 100%;
+    max-width: 900px;
+    width: 95%;
+    padding: 40px 0;
 }
 
 h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
     text-align: center;
     color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.025em;
+}
+
+h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    border-left: 6px solid var(--primary-color);
+    padding-left: 15px;
 }
 
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
     margin-top: 30px;
 }
 
 .card {
     background-color: var(--card-bg);
     border-radius: var(--border-radius);
-    padding: 20px;
+    padding: 28px;
     box-shadow: var(--shadow);
-    transition: transform 0.2s;
-    cursor: pointer;
-    border: 1px solid transparent;
+    transition: var(--transition);
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     border-color: var(--primary-color);
 }
 
 .card h2 {
-    margin-top: 0;
-    font-size: 1.25rem;
+    margin: 0 0 12px 0;
+    font-size: 1.35rem;
+    border: none;
+    padding: 0;
+    color: var(--primary-color);
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+.btn-group {
+    display: flex;
+    gap: 12px;
 }
 
 .btn {
-    display: inline-block;
-    padding: 10px 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
     background-color: var(--primary-color);
     color: white;
     text-decoration: none;
-    border-radius: 8px;
-    transition: background-color 0.3s;
+    border-radius: 12px;
+    transition: var(--transition);
     border: none;
     cursor: pointer;
     font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .btn:hover {
-    background-color: #357abd;
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
+.btn-accent {
+    background-color: var(--accent-color);
+}
+
+.btn-accent:hover {
+    background-color: #d97706;
+}
+
+.display-none {
+    display: none !important;
+}
+
+/* Study Screen */
 .study-item {
     background: white;
-    padding: 2rem;
+    padding: 2.5rem;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+    border: 1px solid #e2e8f0;
+}
+
+.study-item h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     margin-bottom: 1.5rem;
 }
 
 .formula-box {
-    background: #fdfdfd;
-    padding: 1rem;
-    border: 1px dashed #ccc;
-    border-radius: 8px;
-    min-height: 50px;
+    background: #f1f5f9;
+    padding: 2rem;
+    border-radius: 12px;
+    min-height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
-    margin: 1rem 0;
+    font-size: 1.75rem;
     cursor: pointer;
     user-select: none;
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+.formula-box:hover {
+    background: #e2e8f0;
+    border-color: var(--primary-color);
 }
 
 .formula-box.hidden span {
@@ -101,60 +173,126 @@ h1 {
 }
 
 .formula-box.hidden::after {
-    content: "クリックして表示";
-    font-size: 1rem;
-    color: #999;
+    content: "タップして表示";
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-weight: 500;
 }
 
+/* Nav */
 nav {
     margin-bottom: 2rem;
     width: 100%;
-    display: flex;
-    justify-content: flex-start;
 }
 
 .nav-link {
     color: var(--primary-color);
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    transition: var(--transition);
 }
 
+.nav-link:hover {
+    transform: translateX(-5px);
+}
+
+/* Quiz Screen */
 .quiz-container {
     background: white;
-    padding: 2rem;
+    padding: 3rem;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
+    border: 1px solid #e2e8f0;
+}
+
+.quiz-container h1 {
+    font-size: 1.5rem;
+    text-align: left;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+#question-text {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
 }
 
 .options {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
 }
 
 .option {
-    padding: 1.2rem;
-    border: 2px solid #eee;
-    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    border: 2px solid #f1f5f9;
+    border-radius: 12px;
     cursor: pointer;
-    transition: all 0.2s;
-    font-size: 1.1rem;
-    line-height: 1.4;
+    transition: var(--transition);
     background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     display: flex;
     align-items: center;
-    min-height: 60px;
 }
 
 .option:hover {
-    background-color: #f0f7ff;
     border-color: var(--primary-color);
-    transform: translateX(5px);
+    background-color: #eff6ff;
+    transform: translateX(8px);
 }
 
-/* MathJax formula sizing in options */
-.option .MathJax {
-    font-size: 1.2rem !important;
+.option.correct {
+    border-color: var(--success-color);
+    background-color: #ecfdf5;
+}
+
+.option.wrong {
+    border-color: var(--error-color);
+    background-color: #fef2f2;
+}
+
+#feedback {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid #f1f5f9;
+}
+
+#feedback-text {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.explanation-box {
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 6px solid var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    body {
+        padding: 10px;
+    }
+    .container {
+        padding: 20px 0;
+    }
+    h1 {
+        font-size: 1.75rem;
+    }
+    .quiz-container {
+        padding: 1.5rem;
+    }
+    .study-item {
+        padding: 1.5rem;
+    }
+    .formula-box {
+        font-size: 1.25rem;
+        padding: 1.5rem;
+    }
 }

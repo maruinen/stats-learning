@@ -51,9 +51,9 @@
             div.innerHTML = `
                 <h2>${item.name}</h2>
                 <p>${item.description}</p>
-                <div style="display: flex; gap: 10px; margin-top: 15px;">
+                <div class="btn-group">
                     <button class="btn" onclick="location.href='study.html?id=${item.id}'">学習する</button>
-                    <button class="btn" style="background-color: var(--accent-color);" onclick="location.href='quiz.html?id=${item.id}'">クイズ</button>
+                    <button class="btn btn-accent" onclick="location.href='quiz.html?id=${item.id}'">クイズ</button>
                 </div>
             `;
             return div;
