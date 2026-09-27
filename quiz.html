@@ -88,7 +88,7 @@
             const feedback = document.getElementById('feedback');
             feedback.classList.add('display-none');
             
-            document.getElementById('question-text').innerText = quiz.question;
+            document.getElementById('question-text').innerHTML = quiz.question;
 
             // 選択肢の準備
             let options = quiz.options.map((text, index) => ({

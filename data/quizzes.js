@@ -163,5 +163,10 @@ const QUIZ_DATA = [
     // --- 標準誤差 (standard_error) ---
     { id: "q_se_01", itemId: "standard_error", question: "標準誤差 (SE) の意味は？", options: ["推定量の標準偏差", "個々のデータのバラツキ", "測定のミス", "最大誤差"], answerIndex: 0, explanation: "統計量（平均など）がどの程度バラつくかを示します。" },
     { id: "q_se_02", itemId: "standard_error", question: "サンプルサイズ n を4倍にすると標準誤差は？", options: ["1/2倍になる", "1/4倍になる", "2倍になる", "変わらない"], answerIndex: 0, explanation: "分母が √n なので √4=2 で割ります。" },
-    { id: "q_se_03", itemId: "standard_error", question: "母分散が未知のとき、標準誤差の推定に使うのは？", options: ["不偏標準偏差 s", "範囲 R", "母分散", "0"], answerIndex: 0, explanation: "s / √n を推定値として使います。" }
+    { id: "q_se_03", itemId: "standard_error", question: "母分散が未知のとき、標準誤差の推定に使うのは？", options: ["不偏標準偏差 s", "範囲 R", "母分散", "0"], answerIndex: 0, explanation: "s / √n を推定値として使います。" },
+
+    // --- t分布とF分布の関係 (t_f_relation) ---
+    { id: "q_tf_01", itemId: "t_f_relation", question: "自由度 \\( n \\) の t 分布に従う統計量 \\( T \\) に対し、\\( T^2 \\) はどの分布に従いますか？", options: ["\\( F(1, n) \\)", "\\( F(n, 1) \\)", "\\( \\chi^2(n) \\)", "\\( N(0, 1) \\)"], answerIndex: 0, explanation: "\\( T^2 \\) は分子自由度 1、分母自由度 n の F 分布に従います。" },
+    { id: "q_tf_02", itemId: "t_f_relation", question: "t 分布の定義式 \\( T = Z / \\sqrt{W/n} \\) において、分子 \\( Z \\) と分母 \\( W \\) が従う分布の組み合わせは？", options: ["Z: 標準正規分布, W: カイ二乗分布", "Z: カイ二乗分布, W: 標準正規分布", "どちらも正規分布", "どちらもカイ二乗分布"], answerIndex: 0, explanation: "分子は標準正規分布、分母は自由度 n のカイ二乗分布（を自由度で割ったものの平方根）です。" },
+    { id: "q_tf_03", itemId: "t_f_relation", question: "F 分布 \\( F(n_1, n_2) \\) において、\\( n_1=1 \\) としたとき、それは何と等価ですか？", options: ["自由度 n2 の t 分布に従う変数の二乗", "自由度 n2 のカイ二乗分布", "標準正規分布", "自由度 n2 の t 分布"], answerIndex: 0, explanation: "分子自由度が 1 の F 分布は、対応する自由度を持つ t 分布の二乗に相当します。" }
 ];

@@ -8,7 +8,7 @@ const STATS_DATA = {
       "mean": "np",
       "variance": "np(1-p)",
       "pgf": "(pt + 1-p)^n",
-      "description": "成功確率 p の独立な試行を n 回行ったときの成功回数 k の分布。"
+      "description": "成功確率 \\( p \\) の独立な試行を \\( n \\) 回行ったときの成功回数 \\( k \\) の分布。"
     },
     {
       "id": "poisson",
@@ -18,7 +18,7 @@ const STATS_DATA = {
       "mean": "\\lambda",
       "variance": "\\lambda",
       "pgf": "e^{\\lambda(t-1)}",
-      "description": "単位時間または単位空間に平均 λ 回発生する事象の回数 k の分布。"
+      "description": "単位時間または単位空間に平均 \\( \\lambda \\) 回発生する事象の回数 \\( k \\) の分布。"
     },
     {
       "id": "hypergeometric",
@@ -38,7 +38,7 @@ const STATS_DATA = {
       "mean": "1/p",
       "variance": "(1-p)/p^2",
       "pgf": "\\frac{pt}{1-(1-p)t}",
-      "description": "初めて成功するまでの試行回数 k の分布。"
+      "description": "初めて成功するまでの試行回数 \\( k \\) の分布。"
     },
     {
       "id": "neg_binomial",
@@ -48,7 +48,7 @@ const STATS_DATA = {
       "mean": "r/p",
       "variance": "r(1-p)/p^2",
       "pgf": "\\left( \\frac{pt}{1-(1-p)t} \\right)^r",
-      "description": "r 回成功するまでの試行回数 k の分布。"
+      "description": "\\( r \\) 回成功するまでの試行回数 \\( k \\) の分布。"
     },
     {
       "id": "multinomial",
@@ -68,7 +68,7 @@ const STATS_DATA = {
       "mean": "\\mu",
       "variance": "\\sigma^2",
       "mgf": "\\exp\\left(\\mu t + \\frac{\\sigma^2 t^2}{2}\\right)",
-      "description": "平均 μ、分散 σ² を持つ連続確率分布。"
+      "description": "平均 \\( \\mu \\)、分散 \\( \\sigma^2 \\) を持つ連続確率分布。"
     },
     {
       "id": "exponential",
@@ -88,7 +88,7 @@ const STATS_DATA = {
       "mean": "\\alpha/\\beta",
       "variance": "\\alpha/\\beta^2",
       "mgf": "(1-t/\\beta)^{-\\alpha}",
-      "description": "形状パラメータ α と尺度パラメータ β を持つ連続確率分布。"
+      "description": "形状パラメータ \\( \\alpha \\) と尺度パラメータ \\( \\beta \\) を持つ連続確率分布。"
     },
     {
       "id": "beta_dist",
@@ -168,7 +168,7 @@ const STATS_DATA = {
       "mean": "0 \\quad (n>1)",
       "variance": "n/(n-2) \\quad (n>2)",
       "mgf": "\\text{存在しない}",
-      "description": "標本平均の分布に基づく検定に使われる分布。"
+      "description": "標準正規分布 \\( Z \\) と自由度 \\( n \\) のカイ二乗分布 \\( W \\) が独立なとき、\\[ T = \\frac{Z}{\\sqrt{W/n}} \\] が従う分布。"
     },
     {
       "id": "f_dist",
@@ -178,7 +178,7 @@ const STATS_DATA = {
       "mean": "n_2 / (n_2 - 2)",
       "variance": "\\text{複雑（n2 > 4で定義）}",
       "mgf": "\\text{存在しない}",
-      "description": "分散分析や分散の比の検定に使われる分布。"
+      "description": "自由度 \\( p, q \\) の独立なカイ二乗分布 \\( U, V \\) に対し、\\[ F = \\frac{U/p}{V/q} \\] が従う分布。"
     }
   ],
   "functions": [
@@ -186,19 +186,19 @@ const STATS_DATA = {
       "id": "weak_law",
       "name": "大数の弱法則",
       "formula": "P(|\\bar{X}_n - \\mu| > \\epsilon) \\to 0 \\quad (n \\to \\infty)",
-      "description": "標本平均は母平均 μ に確率収束するという法則。"
+      "description": "標本平均は母平均 \\( \\mu \\) に確率収束するという法則。"
     },
     {
       "id": "clt",
       "name": "中心極限定理 (CLT)",
       "formula": "Z = \\frac{\\bar{X}_n - \\mu}{\\sigma/\\sqrt{n}} \\to N(0, 1)",
-      "description": "標本平均の分布が n が大きくなると正規分布に近づくという定理。"
+      "description": "標本平均の分布が \\( n \\) が大きくなると正規分布に近づくという定理。"
     },
     {
       "id": "variable_transformation",
       "name": "確率密度関数の変数変換",
       "formula": "f_Y(y) = f_X(g^{-1}(y)) \\left| \\frac{d}{dy} g^{-1}(y) \\right|",
-      "description": "変数変換 Y = g(X) の密度関数を求める公式（ヤコビアン）。"
+      "description": "変数変換 \\( Y = g(X) \\) の密度関数を求める公式（ヤコビアン）。"
     },
     {
       "id": "gamma_function",
@@ -223,6 +223,12 @@ const STATS_DATA = {
       "name": "標本確率の標準誤差 (SE)",
       "formula": "SE = \\frac{\\sigma}{\\sqrt{n}}",
       "description": "標本平均の分布の標準偏差。推定の精度を表す。"
+    },
+    {
+      "id": "t_f_relation",
+      "name": "t分布とF分布の関係",
+      "formula": "T^2 \\sim F(1, n)",
+      "description": "自由度 \\( n \\) の t 分布に従う変数 \\( T \\) の二乗は、自由度 \\( (1, n) \\) の F 分布に従う。"
     }
   ]
 };

@@ -43,6 +43,11 @@
                 const card = createCard(item, 'function');
                 funcContainer.appendChild(card);
             });
+
+            // Re-render MathJax
+            if (window.MathJax) {
+                window.MathJax.typesetPromise();
+            }
         }
 
         function createCard(item, type) {

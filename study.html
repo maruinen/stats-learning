@@ -48,7 +48,7 @@
             }
 
             document.getElementById('title').innerText = item.name;
-            document.getElementById('description').innerText = item.description;
+            document.getElementById('description').innerHTML = item.description;
             document.getElementById('formula').innerText = `\\( ${item.formula} \\)`;
 
             if (item.mean) {
