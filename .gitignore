@@ -1,5 +1,7 @@
 
 # Project management files
+.github/
+.trash/
 todo.md
 items.md
 GEMINI.md

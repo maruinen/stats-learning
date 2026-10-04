@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全カード単語帳 - 統計学学習ツール</title>
+    <link rel="stylesheet" href="style.css?v=20261003-1">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="index.html" class="nav-link">← 一覧へ戻る</a>
+        </nav>
+        <main id="sequential-content">
+            <p id="sequential-category" class="category-name"></p>
+            <h1 id="sequential-title">全カード単語帳</h1>
+            <p id="sequential-progress" class="study-summary" aria-live="polite">読み込み中...</p>
+            <p id="sequential-error" class="error-message" hidden></p>
+            <article id="sequential-card" class="sequential-card" hidden>
+                <p id="sequential-label" class="flashcard-label"></p>
+                <h2 id="sequential-prompt"></h2>
+                <button id="sequential-reveal" class="reveal-button" type="button" aria-expanded="false">答えを表示</button>
+                <div id="sequential-answer" class="flashcard-answer" hidden></div>
+            </article>
+            <div class="sequence-navigation" hidden>
+                <button id="previous-card" class="btn sequence-button" type="button">前へ</button>
+                <button id="next-card" class="btn sequence-button" type="button">次へ</button>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="assets/js/sequential-page.js"></script>
+</body>
+</html>

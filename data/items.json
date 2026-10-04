@@ -1,0 +1,546 @@
+{
+  "version": 1,
+  "categories": [
+    {"id": "discrete-distributions", "name": "離散分布", "description": "離散値をとる確率変数の分布", "order": 1},
+    {"id": "continuous-distributions", "name": "連続分布", "description": "連続値をとる確率変数の分布", "order": 2},
+    {"id": "probability-foundations", "name": "確率・モーメント・不等式", "description": "確率論の基本性質と評価不等式", "order": 3},
+    {"id": "estimation-inference", "name": "推定・信頼区間・検定", "description": "推定量の性質、区間推定、検定", "order": 4},
+    {"id": "regression", "name": "回帰", "description": "単回帰・重回帰の推定", "order": 5},
+    {"id": "multivariate-analysis", "name": "多変量解析", "description": "因子分析の基本概念", "order": 6},
+    {"id": "model-evaluation", "name": "モデル評価・選択", "description": "予測誤差の分解とモデル選択基準", "order": 7},
+    {"id": "mathematical-foundations", "name": "数学的基礎", "description": "変数変換と特殊関数", "order": 8}
+  ],
+  "items": [
+    {
+      "id": "binomial",
+      "categoryId": "discrete-distributions",
+      "title": "二項分布",
+      "summary": "独立なベルヌーイ試行における成功回数の分布。",
+      "tags": ["二項分布", "ベルヌーイ試行", "期待値", "分散", "PGF"],
+      "cards": [
+        {"id": "pmf", "label": "確率関数", "prompt": "二項分布 B(n, p) の確率関数は。", "answer": "\\(P(X=k)=\\binom{n}{k}p^k(1-p)^{n-k}\\)"},
+        {"id": "moments", "label": "期待値・分散", "prompt": "二項分布の期待値と分散は。", "answer": "\\(E[X]=np,\\quad V[X]=np(1-p)\\)"},
+        {"id": "pgf", "label": "確率母関数", "prompt": "二項分布の確率母関数は。", "answer": "\\(G_X(t)=(pt+1-p)^n\\)"}
+      ],
+      "relatedItemIds": ["standard-error-proportion"]
+    },
+    {
+      "id": "poisson",
+      "categoryId": "discrete-distributions",
+      "title": "ポアソン分布",
+      "summary": "一定区間に平均λ回起きる事象の発生回数を表す分布。",
+      "tags": ["ポアソン分布", "期待値", "分散", "PGF"],
+      "cards": [
+        {"id": "pmf", "label": "確率関数", "prompt": "ポアソン分布 Pois(λ) の確率関数は。", "answer": "\\(P(X=k)=\\frac{\\lambda^k e^{-\\lambda}}{k!}\\)"},
+        {"id": "moments", "label": "期待値・分散", "prompt": "ポアソン分布の期待値と分散は。", "answer": "\\(E[X]=V[X]=\\lambda\\)"},
+        {"id": "pgf", "label": "確率母関数", "prompt": "ポアソン分布の確率母関数は。", "answer": "\\(G_X(t)=e^{\\lambda(t-1)}\\)"}
+      ],
+      "relatedItemIds": ["exponential"]
+    },
+    {
+      "id": "hypergeometric",
+      "categoryId": "discrete-distributions",
+      "title": "超幾何分布",
+      "summary": "有限母集団から非復元抽出するときの成功数の分布。",
+      "tags": ["超幾何分布", "非復元抽出", "期待値", "分散"],
+      "cards": [
+        {"id": "pmf", "label": "確率関数", "prompt": "超幾何分布の確率関数は。", "answer": "\\(P(X=k)=\\frac{\\binom{M}{k}\\binom{N-M}{n-k}}{\\binom{N}{n}}\\)"},
+        {"id": "moments", "label": "期待値・分散", "prompt": "超幾何分布の期待値と分散は。", "answer": "\\(E[X]=n\\frac{M}{N},\\quad V[X]=n\\frac{M}{N}\\frac{N-M}{N}\\frac{N-n}{N-1}\\)"}
+      ],
+      "relatedItemIds": ["binomial"]
+    },
+    {
+      "id": "geometric",
+      "categoryId": "discrete-distributions",
+      "title": "幾何分布",
+      "summary": "初めて成功するまでの試行回数の分布。",
+      "tags": ["幾何分布", "ベルヌーイ試行", "期待値", "分散", "PGF"],
+      "cards": [
+        {"id": "pmf", "label": "確率関数", "prompt": "幾何分布の確率関数は。", "answer": "\\(P(X=k)=p(1-p)^{k-1}\\)"},
+        {"id": "moments", "label": "期待値・分散", "prompt": "幾何分布の期待値と分散は。", "answer": "\\(E[X]=1/p,\\quad V[X]=(1-p)/p^2\\)"},
+        {"id": "pgf", "label": "確率母関数", "prompt": "幾何分布の確率母関数は。", "answer": "\\(G_X(t)=\\frac{pt}{1-(1-p)t}\\)"}
+      ],
+      "relatedItemIds": ["negative-binomial"]
+    },
+    {
+      "id": "negative-binomial",
+      "categoryId": "discrete-distributions",
+      "title": "負の二項分布",
+      "summary": "r回成功するまでの試行回数の分布。",
+      "tags": ["負の二項分布", "幾何分布", "期待値", "分散", "PGF"],
+      "cards": [
+        {"id": "pmf", "label": "確率関数", "prompt": "負の二項分布の確率関数は。", "answer": "\\(P(X=k)=\\binom{k-1}{r-1}p^r(1-p)^{k-r}\\)"},
+        {"id": "moments", "label": "期待値・分散", "prompt": "負の二項分布の期待値と分散は。", "answer": "\\(E[X]=r/p,\\quad V[X]=r(1-p)/p^2\\)"},
+        {"id": "pgf", "label": "確率母関数", "prompt": "負の二項分布の確率母関数は。", "answer": "\\(G_X(t)=\\left(\\frac{pt}{1-(1-p)t}\\right)^r\\)"}
+      ],
+      "relatedItemIds": ["geometric"]
+    },
+    {
+      "id": "multinomial",
+      "categoryId": "discrete-distributions",
+      "title": "多項分布",
+      "summary": "二項分布を複数カテゴリへ拡張した分布。",
+      "tags": ["多項分布", "二項分布", "期待値", "分散"],
+      "cards": [
+        {"id": "pmf", "label": "確率関数", "prompt": "多項分布の確率関数は。", "answer": "\\(P(k_1,\\dots,k_m)=\\frac{n!}{k_1!\\dots k_m!}p_1^{k_1}\\dots p_m^{k_m}\\)"},
+        {"id": "moments", "label": "期待値・分散", "prompt": "各成分 X_i の期待値と分散は。", "answer": "\\(E[X_i]=np_i,\\quad V[X_i]=np_i(1-p_i)\\)"}
+      ],
+      "relatedItemIds": ["binomial"]
+    },
+    {
+      "id": "normal",
+      "categoryId": "continuous-distributions",
+      "title": "正規分布",
+      "summary": "平均μ、分散σ²を持つ代表的な連続確率分布。",
+      "tags": ["正規分布", "期待値", "分散", "MGF"],
+      "cards": [
+        {"id": "pdf", "label": "確率密度関数", "prompt": "正規分布 N(μ, σ²) の密度関数は。", "answer": "\\(f(x)=\\frac{1}{\\sqrt{2\\pi\\sigma^2}}\\exp\\left(-\\frac{(x-\\mu)^2}{2\\sigma^2}\\right)\\)"},
+        {"id": "moments", "label": "期待値・分散", "prompt": "正規分布の期待値と分散は。", "answer": "\\(E[X]=\\mu,\\quad V[X]=\\sigma^2\\)"},
+        {"id": "mgf", "label": "モーメント母関数", "prompt": "正規分布のモーメント母関数は。", "answer": "\\(M_X(t)=\\exp\\left(\\mu t+\\frac{\\sigma^2t^2}{2}\\right)\\)"}
+      ],
+      "relatedItemIds": ["chi-square", "t-distribution", "clt"]
+    },
+    {
+      "id": "exponential",
+      "categoryId": "continuous-distributions",
+      "title": "指数分布",
+      "summary": "事象が起きるまでの待ち時間を表す連続分布。",
+      "tags": ["指数分布", "ポアソン過程", "期待値", "分散", "MGF"],
+      "cards": [
+        {"id": "pdf", "label": "確率密度関数", "prompt": "指数分布 Exp(λ) の密度関数は。", "answer": "\\(f(x)=\\lambda e^{-\\lambda x}\\)"},
+        {"id": "moments", "label": "期待値・分散", "prompt": "指数分布の期待値と分散は。", "answer": "\\(E[X]=1/\\lambda,\\quad V[X]=1/\\lambda^2\\)"},
+        {"id": "mgf", "label": "モーメント母関数", "prompt": "指数分布のモーメント母関数は。", "answer": "\\(M_X(t)=\\frac{\\lambda}{\\lambda-t}\\)"}
+      ],
+      "relatedItemIds": ["poisson", "gamma-distribution"]
+    },
+    {
+      "id": "gamma-distribution",
+      "categoryId": "continuous-distributions",
+      "title": "ガンマ分布",
+      "summary": "形状パラメータと率パラメータを持つ連続分布。",
+      "tags": ["ガンマ分布", "期待値", "分散", "MGF", "ガンマ関数"],
+      "cards": [
+        {"id": "pdf", "label": "確率密度関数", "prompt": "Gamma(α, β) の密度関数は。", "answer": "\\(f(x)=\\frac{\\beta^\\alpha}{\\Gamma(\\alpha)}x^{\\alpha-1}e^{-\\beta x}\\)"},
+        {"id": "moments", "label": "期待値・分散", "prompt": "ガンマ分布の期待値と分散は。", "answer": "\\(E[X]=\\alpha/\\beta,\\quad V[X]=\\alpha/\\beta^2\\)"},
+        {"id": "mgf", "label": "モーメント母関数", "prompt": "ガンマ分布のモーメント母関数は。", "answer": "\\(M_X(t)=(1-t/\\beta)^{-\\alpha}\\)"}
+      ],
+      "relatedItemIds": ["gamma-function", "chi-square"]
+    },
+    {
+      "id": "beta-distribution",
+      "categoryId": "continuous-distributions",
+      "title": "ベータ分布",
+      "summary": "[0, 1] 区間で定義される連続確率分布。",
+      "tags": ["ベータ分布", "期待値", "分散", "ベータ関数"],
+      "cards": [
+        {"id": "pdf", "label": "確率密度関数", "prompt": "Beta(α, β) の密度関数は。", "answer": "\\(f(x)=\\frac{x^{\\alpha-1}(1-x)^{\\beta-1}}{B(\\alpha,\\beta)}\\)"},
+        {"id": "moments", "label": "期待値・分散", "prompt": "ベータ分布の期待値と分散は。", "answer": "\\(E[X]=\\frac{\\alpha}{\\alpha+\\beta},\\quad V[X]=\\frac{\\alpha\\beta}{(\\alpha+\\beta)^2(\\alpha+\\beta+1)}\\)"}
+      ],
+      "relatedItemIds": ["beta-function"]
+    },
+    {
+      "id": "cauchy",
+      "categoryId": "continuous-distributions",
+      "title": "コーシー分布",
+      "summary": "期待値と分散が定義されない裾の重い分布。",
+      "tags": ["コーシー分布", "期待値", "分散", "MGF"],
+      "cards": [
+        {"id": "pdf", "label": "確率密度関数", "prompt": "コーシー分布の密度関数は。", "answer": "\\(f(x)=\\frac{1}{\\pi\\gamma[1+((x-x_0)/\\gamma)^2]}\\)"},
+        {"id": "properties", "label": "性質", "prompt": "コーシー分布の期待値、分散、MGFは。", "answer": "期待値と分散は定義されず、モーメント母関数は存在しない。"}
+      ],
+      "relatedItemIds": []
+    },
+    {
+      "id": "lognormal",
+      "categoryId": "continuous-distributions",
+      "title": "対数正規分布",
+      "summary": "対数をとると正規分布に従う正の連続分布。",
+      "tags": ["対数正規分布", "期待値", "分散", "MGF"],
+      "cards": [
+        {"id": "pdf", "label": "確率密度関数", "prompt": "対数正規分布の密度関数は。", "answer": "\\(f(x)=\\frac{1}{x\\sigma\\sqrt{2\\pi}}\\exp\\left(-\\frac{(\\ln x-\\mu)^2}{2\\sigma^2}\\right)\\)"},
+        {"id": "moments", "label": "期待値・分散", "prompt": "対数正規分布の期待値と分散は。", "answer": "\\(E[X]=e^{\\mu+\\sigma^2/2},\\quad V[X]=e^{2\\mu+\\sigma^2}(e^{\\sigma^2}-1)\\)"},
+        {"id": "mgf", "label": "モーメント母関数", "prompt": "対数正規分布のMGFは。", "answer": "有限の範囲では存在しない。"}
+      ],
+      "relatedItemIds": ["normal"]
+    },
+    {
+      "id": "weibull",
+      "categoryId": "continuous-distributions",
+      "title": "ワイブル分布",
+      "summary": "信頼性工学や寿命解析でよく使われる連続分布。",
+      "tags": ["ワイブル分布", "寿命解析", "期待値", "分散"],
+      "cards": [
+        {"id": "pdf", "label": "確率密度関数", "prompt": "ワイブル分布の密度関数は。", "answer": "\\(f(x)=\\frac{k}{\\lambda}(\\frac{x}{\\lambda})^{k-1}e^{-(x/\\lambda)^k}\\)"},
+        {"id": "moments", "label": "期待値・分散", "prompt": "ワイブル分布の期待値と分散は。", "answer": "\\(E[X]=\\lambda\\Gamma(1+1/k),\\quad V[X]=\\lambda^2[\\Gamma(1+2/k)-\\Gamma(1+1/k)^2]\\)"}
+      ],
+      "relatedItemIds": ["gamma-function"]
+    },
+    {
+      "id": "logistic",
+      "categoryId": "continuous-distributions",
+      "title": "ロジスティック分布",
+      "summary": "累積分布関数がロジスティック関数となる分布。",
+      "tags": ["ロジスティック分布", "期待値", "分散", "MGF"],
+      "cards": [
+        {"id": "pdf", "label": "確率密度関数", "prompt": "ロジスティック分布の密度関数は。", "answer": "\\(f(x)=\\frac{e^{-(x-\\mu)/s}}{s(1+e^{-(x-\\mu)/s})^2}\\)"},
+        {"id": "moments", "label": "期待値・分散", "prompt": "ロジスティック分布の期待値と分散は。", "answer": "\\(E[X]=\\mu,\\quad V[X]=s^2\\pi^2/3\\)"}
+      ],
+      "relatedItemIds": []
+    },
+    {
+      "id": "multivariate-normal",
+      "categoryId": "continuous-distributions",
+      "title": "多変量正規分布",
+      "summary": "正規分布を多次元に拡張した分布。",
+      "tags": ["多変量正規分布", "分散共分散行列", "MGF"],
+      "cards": [
+        {"id": "pdf", "label": "確率密度関数", "prompt": "k次元多変量正規分布の密度関数は。", "answer": "\\(f(\\mathbf{x})=\\frac{1}{\\sqrt{(2\\pi)^k|\\Sigma|}}\\exp(-\\frac{1}{2}(\\mathbf{x}-\\boldsymbol{\\mu})^T\\Sigma^{-1}(\\mathbf{x}-\\boldsymbol{\\mu}))\\)"},
+        {"id": "moments", "label": "期待値・分散", "prompt": "多変量正規分布の期待値と分散共分散行列は。", "answer": "\\(E[\\mathbf{X}]=\\boldsymbol{\\mu},\\quad V[\\mathbf{X}]=\\Sigma\\)"}
+      ],
+      "relatedItemIds": ["factor-analysis-loadings"]
+    },
+    {
+      "id": "chi-square",
+      "categoryId": "continuous-distributions",
+      "title": "カイ二乗分布",
+      "summary": "独立な標準正規変数の二乗和が従う分布。",
+      "tags": ["カイ二乗分布", "正規分布", "期待値", "分散", "MGF"],
+      "cards": [
+        {"id": "pdf", "label": "確率密度関数", "prompt": "自由度nのカイ二乗分布の密度関数は。", "answer": "\\(f(x)=\\frac{1}{2^{n/2}\\Gamma(n/2)}x^{n/2-1}e^{-x/2}\\)"},
+        {"id": "moments", "label": "期待値・分散", "prompt": "カイ二乗分布の期待値と分散は。", "answer": "\\(E[X]=n,\\quad V[X]=2n\\)"},
+        {"id": "mgf", "label": "モーメント母関数", "prompt": "カイ二乗分布のMGFは。", "answer": "\\(M_X(t)=(1-2t)^{-n/2}\\)"}
+      ],
+      "relatedItemIds": ["normal", "t-distribution", "variance-confidence-interval"]
+    },
+    {
+      "id": "t-distribution",
+      "categoryId": "continuous-distributions",
+      "title": "t分布",
+      "summary": "標準正規分布とカイ二乗分布から構成される標本分布。",
+      "tags": ["t分布", "カイ二乗分布", "期待値", "分散", "F分布"],
+      "cards": [
+        {"id": "construction", "label": "構成", "prompt": "t分布はどのように構成されるか。", "answer": "標準正規分布 \\(Z\\) と自由度 \\(n\\) のカイ二乗分布 \\(W\\) が独立なとき、\\(T=Z/\\sqrt{W/n}\\) は自由度 \\(n\\) のt分布に従う。"},
+        {"id": "moments", "label": "期待値・分散", "prompt": "t分布の期待値と分散は。", "answer": "\\(E[T]=0\\ (n>1),\\quad V[T]=n/(n-2)\\ (n>2)\\)"},
+        {"id": "mgf", "label": "モーメント母関数", "prompt": "t分布のMGFは。", "answer": "存在しない。"}
+      ],
+      "relatedItemIds": ["chi-square", "t-f-relation"]
+    },
+    {
+      "id": "f-distribution",
+      "categoryId": "continuous-distributions",
+      "title": "F分布",
+      "summary": "独立な二つのカイ二乗分布の比から構成される分布。",
+      "tags": ["F分布", "カイ二乗分布", "t分布", "期待値", "分散"],
+      "cards": [
+        {"id": "construction", "label": "構成", "prompt": "F分布はどのように構成されるか。", "answer": "自由度 \\(p,q\\) の独立なカイ二乗変数 \\(U,V\\) に対し、\\(F=(U/p)/(V/q)\\) は自由度 \\((p,q)\\) のF分布に従う。"},
+        {"id": "moments", "label": "期待値・分散", "prompt": "F分布の期待値と分散は。", "answer": "\\(E[F]=q/(q-2)\\)（\\(q>2\\)）。分散は \\(q>4\\) で定義される。"},
+        {"id": "mgf", "label": "モーメント母関数", "prompt": "F分布のMGFは。", "answer": "存在しない。"}
+      ],
+      "relatedItemIds": ["chi-square", "t-f-relation"]
+    },
+    {
+      "id": "weak-law",
+      "categoryId": "probability-foundations",
+      "title": "大数の弱法則",
+      "summary": "標本平均が母平均へ確率収束することを表す法則。",
+      "tags": ["大数の弱法則", "確率収束", "標本平均"],
+      "cards": [
+        {"id": "statement", "label": "定理", "prompt": "大数の弱法則の主張は。", "answer": "\\(P(|\\bar{X}_n-\\mu|>\\epsilon)\\to0\\quad(n\\to\\infty)\\)"}
+      ],
+      "relatedItemIds": ["consistent-estimator", "clt"]
+    },
+    {
+      "id": "clt",
+      "categoryId": "probability-foundations",
+      "title": "中心極限定理",
+      "summary": "標本平均を標準化すると正規分布へ近づく定理。",
+      "tags": ["中心極限定理", "CLT", "標本平均", "正規分布"],
+      "cards": [
+        {"id": "statement", "label": "定理", "prompt": "中心極限定理の標準化した形は。", "answer": "\\(Z=\\frac{\\bar{X}_n-\\mu}{\\sigma/\\sqrt{n}}\\to N(0,1)\\)"}
+      ],
+      "relatedItemIds": ["normal", "standard-error-of-mean"]
+    },
+    {
+      "id": "iterated-expectation",
+      "categoryId": "probability-foundations",
+      "title": "繰り返し期待値の法則",
+      "summary": "条件付き期待値の期待値は元の期待値に等しい。",
+      "tags": ["繰り返し期待値", "条件付き期待値"],
+      "cards": [
+        {"id": "formula", "label": "公式", "prompt": "繰り返し期待値の法則は。", "answer": "\\(E[E[X\\mid Y]]=E[X]\\)"}
+      ],
+      "relatedItemIds": []
+    },
+    {
+      "id": "kurtosis",
+      "categoryId": "probability-foundations",
+      "title": "尖度",
+      "summary": "分布の裾の重さや中心付近の集中度を表す指標。",
+      "tags": ["尖度", "モーメント", "分散"],
+      "cards": [
+        {"id": "formula", "label": "定義", "prompt": "尖度の定義は。", "answer": "\\(E[(X-E[X])^4]/V[X]^2\\)"}
+      ],
+      "relatedItemIds": []
+    },
+    {
+      "id": "affine-mgf",
+      "categoryId": "probability-foundations",
+      "title": "モーメント母関数の線形変換公式",
+      "summary": "確率変数のアフィン変換に対するMGFの公式。",
+      "tags": ["モーメント母関数", "MGF", "線形変換"],
+      "cards": [
+        {"id": "formula", "label": "公式", "prompt": "aX+b のモーメント母関数は。", "answer": "\\(M_{aX+b}(t)=e^{bt}M_X(at)\\)"}
+      ],
+      "relatedItemIds": ["normal"]
+    },
+    {
+      "id": "markov-inequality",
+      "categoryId": "probability-foundations",
+      "title": "マルコフの不等式",
+      "summary": "非負確率変数の裾確率を期待値で上から評価する不等式。",
+      "tags": ["マルコフの不等式", "期待値", "確率不等式"],
+      "cards": [
+        {"id": "statement", "label": "不等式", "prompt": "非負確率変数Yに対するマルコフの不等式は。", "answer": "\\(P(Y\\ge c)\\le\\frac{E[Y]}{c}\\)"},
+        {"id": "derivation", "label": "導出", "prompt": "マルコフの不等式の導出の要点は。", "answer": "\\(E[Y]\\ge\\int_c^\\infty c f(y)\\,dy=cP(Y\\ge c)\\)"}
+      ],
+      "relatedItemIds": ["chebyshev-inequality"]
+    },
+    {
+      "id": "chebyshev-inequality",
+      "categoryId": "probability-foundations",
+      "title": "チェビシェフの不等式",
+      "summary": "平均からのずれの確率を分散で上から評価する不等式。",
+      "tags": ["チェビシェフの不等式", "分散", "確率不等式"],
+      "cards": [
+        {"id": "statement", "label": "不等式", "prompt": "チェビシェフの不等式は。", "answer": "\\(P(|X-E[X]|\\ge\\varepsilon)\\le\\frac{V[X]}{\\varepsilon^2}\\)"},
+        {"id": "standardized", "label": "標準化した形", "prompt": "標準偏差σを使ったチェビシェフの不等式は。", "answer": "\\(P(|X-\\mu|\\ge a\\sigma)\\le1/a^2\\)"},
+        {"id": "derivation", "label": "導出", "prompt": "チェビシェフの不等式をマルコフの不等式から得るには。", "answer": "\\(Y=(X-\\mu)^2,\\ c=(a\\sigma)^2\\) と置く。"}
+      ],
+      "relatedItemIds": ["markov-inequality", "consistent-estimator"]
+    },
+    {
+      "id": "standard-error-proportion",
+      "categoryId": "estimation-inference",
+      "title": "確率シミュレーションの標準誤差",
+      "summary": "ベルヌーイ試行として扱うシミュレーション確率の標準誤差。",
+      "tags": ["標準誤差", "ベルヌーイ試行", "シミュレーション", "二項分布"],
+      "cards": [
+        {"id": "formula", "label": "公式", "prompt": "成功確率p、試行回数nのシミュレーション確率の標準誤差は。", "answer": "\\(SE=\\sqrt{p(1-p)/n}\\)"},
+        {"id": "meaning", "label": "意味", "prompt": "標準誤差とは何か。", "answer": "平均値などの統計量の標準偏差。"}
+      ],
+      "relatedItemIds": ["binomial", "standard-error-of-mean"]
+    },
+    {
+      "id": "standard-error-of-mean",
+      "categoryId": "estimation-inference",
+      "title": "標本平均の標準誤差",
+      "summary": "標本平均の標本分布における標準偏差。",
+      "tags": ["標準誤差", "標本平均", "中心極限定理"],
+      "cards": [
+        {"id": "formula", "label": "公式", "prompt": "母標準偏差σ、標本サイズnの標本平均の標準誤差は。", "answer": "\\(SE=\\sigma/\\sqrt{n}\\)"}
+      ],
+      "relatedItemIds": ["clt", "standard-error-proportion"]
+    },
+    {
+      "id": "unbiased-estimator",
+      "categoryId": "estimation-inference",
+      "title": "不偏推定量",
+      "summary": "期待値が母数と等しい推定量。",
+      "tags": ["不偏推定量", "推定量", "期待値"],
+      "cards": [
+        {"id": "definition", "label": "定義", "prompt": "推定量θ̂が不偏である条件は。", "answer": "\\(E[\\hat{\\theta}]=\\theta\\)"}
+      ],
+      "relatedItemIds": ["consistent-estimator"]
+    },
+    {
+      "id": "consistent-estimator",
+      "categoryId": "estimation-inference",
+      "title": "一致推定量",
+      "summary": "標本サイズの増加とともに真の母数へ確率収束する推定量。",
+      "tags": ["一致推定量", "確率収束", "チェビシェフの不等式"],
+      "cards": [
+        {"id": "definition", "label": "定義", "prompt": "一致推定量の確率収束による定義は。", "answer": "任意の \\(\\varepsilon>0\\) に対し、\\(P(|\\hat{\\theta}_n-\\theta|\\ge\\varepsilon)\\to0\\)。"},
+        {"id": "sufficient-condition", "label": "十分条件", "prompt": "期待値と分散で表す一致性の十分条件は。", "answer": "\\(E[\\hat{\\theta}_n]\\to\\theta\\) かつ \\(V[\\hat{\\theta}_n]\\to0\\)。"}
+      ],
+      "relatedItemIds": ["chebyshev-inequality", "weak-law"]
+    },
+    {
+      "id": "variance-confidence-interval",
+      "categoryId": "estimation-inference",
+      "title": "母分散の信頼区間",
+      "summary": "正規母集団の母分散σ²に対する1-α信頼区間。",
+      "tags": ["信頼区間", "母分散", "カイ二乗分布"],
+      "cards": [
+        {"id": "interval", "label": "信頼区間", "prompt": "母分散σ²の1-α信頼区間は。", "answer": "\\(\\frac{(n-1)s^2}{\\chi^2_{\\alpha/2}(n-1)}\\le\\sigma^2\\le\\frac{(n-1)s^2}{\\chi^2_{1-\\alpha/2}(n-1)}\\)"},
+        {"id": "basis", "label": "根拠", "prompt": "母分散の信頼区間で使うカイ二乗統計量は。", "answer": "\\(T^2=\\sum(X_i-\\bar{X})^2\\) とすると、\\(T^2/\\sigma^2\\) は自由度 \\(n-1\\) のカイ二乗分布に従う。"}
+      ],
+      "relatedItemIds": ["chi-square"]
+    },
+    {
+      "id": "likelihood-ratio-test",
+      "categoryId": "estimation-inference",
+      "title": "尤度比検定統計量",
+      "summary": "制約の有無で最大尤度を比較する検定統計量。",
+      "tags": ["尤度比検定", "最尤法", "カイ二乗分布"],
+      "cards": [
+        {"id": "statistic", "label": "検定統計量", "prompt": "尤度比検定統計量は。", "answer": "\\(2\\log\\left(\\frac{L(\\hat{\\theta})}{L(\\hat{\\theta}_0)}\\right)\\stackrel{d}{\\longrightarrow}\\chi^2(d)\\)"},
+        {"id": "degrees", "label": "自由度", "prompt": "尤度比検定におけるdは何か。", "answer": "制約なしモデルと帰無仮説モデルで自由に動けるパラメーター数の差。"}
+      ],
+      "relatedItemIds": ["chi-square", "aic"]
+    },
+    {
+      "id": "multiple-regression-normal-equation",
+      "categoryId": "regression",
+      "title": "重回帰モデルの正規方程式",
+      "summary": "最小二乗推定量が満たす重回帰の基本方程式。",
+      "tags": ["重回帰", "正規方程式", "最小二乗法", "標準化"],
+      "cards": [
+        {"id": "normal-equation", "label": "正規方程式", "prompt": "重回帰モデルの正規方程式は。", "answer": "\\(X^TX\\beta=X^Ty\\)"},
+        {"id": "standardized", "label": "標準化した形", "prompt": "x₁、x₂、yが標準化されたときの方程式は。", "answer": "\\(r_{y1}=\\hat{\\beta}_1+r_{12}\\hat{\\beta}_2,\\quad r_{y2}=r_{12}\\hat{\\beta}_1+\\hat{\\beta}_2\\)"}
+      ],
+      "relatedItemIds": ["simple-regression-slope-se"]
+    },
+    {
+      "id": "simple-regression-slope-se",
+      "categoryId": "regression",
+      "title": "単回帰係数の標準誤差",
+      "summary": "単回帰における回帰係数推定量の標準誤差。",
+      "tags": ["単回帰", "回帰係数", "標準誤差", "共分散行列"],
+      "cards": [
+        {"id": "formula", "label": "公式", "prompt": "y=αzにおけるα̂の標準誤差は。", "answer": "\\(SE(\\hat{\\alpha})=\\sqrt{\\sigma^2/(ns_z^2)}\\)"},
+        {"id": "covariance", "label": "導出の要点", "prompt": "最小二乗推定量β̂の共分散行列は。", "answer": "\\(\\operatorname{Cov}[\\hat{\\beta}]=\\sigma^2(X^TX)^{-1}\\)"},
+        {"id": "note", "label": "注意点", "prompt": "残差分散を標本分散で代用するときの自由度は。", "answer": "自由度は \\(n-1\\) であることに注意する。"}
+      ],
+      "relatedItemIds": ["multiple-regression-normal-equation"]
+    },
+    {
+      "id": "factor-analysis-communality",
+      "categoryId": "multivariate-analysis",
+      "title": "因子分析の共通性",
+      "summary": "変数が共通因子によって説明される分散の割合。",
+      "tags": ["因子分析", "共通性", "因子負荷量", "斜交回転"],
+      "cards": [
+        {"id": "orthogonal", "label": "直交回転", "prompt": "直交回転における共通性は。", "answer": "各因子の因子負荷量の二乗和。"},
+        {"id": "oblique", "label": "斜交回転", "prompt": "斜交回転における共通性は。", "answer": "\\(\\sum_j\\lambda_j^2+2\\sum_{j<k}\\lambda_j\\lambda_k\\phi_{jk}\\)"},
+        {"id": "invariance", "label": "回転との関係", "prompt": "因子回転で共通性は変化するか。", "answer": "直交回転・斜交回転のどちらでも共通性自体は変化しない。斜交回転では計算に因子間相関を含める。"}
+      ],
+      "relatedItemIds": ["factor-analysis-loadings", "factor-analysis-unique-variance"]
+    },
+    {
+      "id": "factor-analysis-loadings",
+      "categoryId": "multivariate-analysis",
+      "title": "因子負荷量と変数間相関",
+      "summary": "因子負荷量と変数間の相関の関係。",
+      "tags": ["因子分析", "因子負荷量", "相関係数"],
+      "cards": [
+        {"id": "loading", "label": "因子負荷量", "prompt": "因子負荷量は何に一致するか。", "answer": "その変数と因子の間の相関係数。"},
+        {"id": "correlation", "label": "変数間相関", "prompt": "変数間の相関係数はどのように推定されるか。", "answer": "因子負荷量の積の和で推定される。"}
+      ],
+      "relatedItemIds": ["factor-analysis-communality", "factor-analysis-explained-variance"]
+    },
+    {
+      "id": "factor-analysis-explained-variance",
+      "categoryId": "multivariate-analysis",
+      "title": "因子寄与と寄与率",
+      "summary": "各因子が全変数の分散をどれだけ説明するかを表す量。",
+      "tags": ["因子分析", "寄与率", "因子寄与", "因子負荷量"],
+      "cards": [
+        {"id": "contribution", "label": "因子寄与", "prompt": "各因子の分散（因子寄与）は。", "answer": "その因子の因子負荷量の二乗和。"},
+        {"id": "ratio", "label": "寄与率", "prompt": "寄与率とは。", "answer": "全変数の分散の合計に対する各因子の分散の割合。"}
+      ],
+      "relatedItemIds": ["factor-analysis-loadings"]
+    },
+    {
+      "id": "factor-analysis-unique-variance",
+      "categoryId": "multivariate-analysis",
+      "title": "因子分析の独自因子分散",
+      "summary": "共通因子では説明されない変数固有の分散。",
+      "tags": ["因子分析", "独自因子", "共通性"],
+      "cards": [
+        {"id": "formula", "label": "公式", "prompt": "独自因子の分散は。", "answer": "\\(1-\\text{共通性}\\)"}
+      ],
+      "relatedItemIds": ["factor-analysis-communality"]
+    },
+    {
+      "id": "bias-variance-decomposition",
+      "categoryId": "model-evaluation",
+      "title": "バイアス・バリアンス分解",
+      "summary": "予測誤差をばらつきと系統的ずれに分解する考え方。",
+      "tags": ["バイアス", "バリアンス", "予測誤差", "モデル評価"],
+      "cards": [
+        {"id": "formula", "label": "分解", "prompt": "バイアス・バリアンス分解は。", "answer": "\\(\\sum E[(\\hat{\\mu}_i-\\mu_i)^2]=\\sum V[\\hat{\\mu}_i]+\\sum(E[\\hat{\\mu}_i]-\\mu_i)^2\\)"},
+        {"id": "interpretation", "label": "解釈", "prompt": "バイアスとバリアンスは何を表すか。", "answer": "バリアンスはモデルの不安定さによるばらつき、バイアスはモデル前提の系統的なずれを表す。"}
+      ],
+      "relatedItemIds": ["aic"]
+    },
+    {
+      "id": "aic",
+      "categoryId": "model-evaluation",
+      "title": "AIC",
+      "summary": "適合度とモデルの複雑さを両方考慮するモデル選択基準。",
+      "tags": ["AIC", "モデル選択", "最尤法", "尤度"],
+      "cards": [
+        {"id": "formula", "label": "公式", "prompt": "AICの定義は。", "answer": "\\(\u005ctext{AIC}=-2\\log L(\\hat{\\theta}_{\\text{ML}})+2\\operatorname{dim}(\\theta)\\)"},
+        {"id": "log-likelihood", "label": "最大対数尤度", "prompt": "AICにおける最大対数尤度はどのように表すか。", "answer": "\\(\\log L(\\hat{\\theta}_{\\text{ML}})=\\sum_{i=1}^n\\log f(X_i;\\hat{\\theta}_n^{\\text{ML}})\\)"},
+        {"id": "dimension", "label": "パラメーター次元", "prompt": "AICにおける dim(θ) は何を表すか。", "answer": "パラメーターの次元、すなわち自由に動かせるパラメーター数。"}
+      ],
+      "relatedItemIds": ["likelihood-ratio-test"]
+    },
+    {
+      "id": "variable-transformation",
+      "categoryId": "mathematical-foundations",
+      "title": "確率密度関数の変数変換",
+      "summary": "変数変換した確率変数の密度関数を求める公式。",
+      "tags": ["変数変換", "確率密度関数", "ヤコビアン"],
+      "cards": [
+        {"id": "formula", "label": "公式", "prompt": "Y=g(X)のときの密度関数の変数変換公式は。", "answer": "\\(f_Y(y)=f_X(g^{-1}(y))\\left|\\frac{d}{dy}g^{-1}(y)\\right|\\)"}
+      ],
+      "relatedItemIds": []
+    },
+    {
+      "id": "gamma-function",
+      "categoryId": "mathematical-foundations",
+      "title": "ガンマ関数",
+      "summary": "階乗を一般化する特殊関数。",
+      "tags": ["ガンマ関数", "積分", "階乗"],
+      "cards": [
+        {"id": "definition", "label": "定義", "prompt": "ガンマ関数の定義は。", "answer": "\\(\\Gamma(z)=\\int_0^\\infty x^{z-1}e^{-x}dx\\)"},
+        {"id": "integral", "label": "積分公式", "prompt": "率λを含むガンマ型積分は。", "answer": "\\(\\int_0^\\infty x^{k-1}e^{-\\lambda x}dx=\\frac{\\Gamma(k)}{\\lambda^k}\\quad(k>0,\\lambda>0)\\)"}
+      ],
+      "relatedItemIds": ["gamma-distribution", "beta-gamma-relation"]
+    },
+    {
+      "id": "beta-function",
+      "categoryId": "mathematical-foundations",
+      "title": "ベータ関数",
+      "summary": "[0,1]区間のべき積分で定義される特殊関数。",
+      "tags": ["ベータ関数", "積分", "ガンマ関数"],
+      "cards": [
+        {"id": "definition", "label": "定義", "prompt": "ベータ関数の定義は。", "answer": "\\(B(x,y)=\\int_0^1t^{x-1}(1-t)^{y-1}dt\\)"}
+      ],
+      "relatedItemIds": ["beta-distribution", "beta-gamma-relation"]
+    },
+    {
+      "id": "beta-gamma-relation",
+      "categoryId": "mathematical-foundations",
+      "title": "ベータ関数とガンマ関数の関係",
+      "summary": "ベータ関数をガンマ関数で表す関係式。",
+      "tags": ["ベータ関数", "ガンマ関数", "特殊関数"],
+      "cards": [
+        {"id": "formula", "label": "公式", "prompt": "ベータ関数とガンマ関数の関係は。", "answer": "\\(B(x,y)=\\frac{\\Gamma(x)\\Gamma(y)}{\\Gamma(x+y)}\\)"}
+      ],
+      "relatedItemIds": ["beta-function", "gamma-function"]
+    },
+    {
+      "id": "t-f-relation",
+      "categoryId": "mathematical-foundations",
+      "title": "t分布とF分布の関係",
+      "summary": "t分布の二乗とF分布を結ぶ関係。",
+      "tags": ["t分布", "F分布", "標本分布"],
+      "cards": [
+        {"id": "formula", "label": "関係式", "prompt": "自由度nのt分布とF分布の関係は。", "answer": "\\(T^2\\sim F(1,n)\\)"}
+      ],
+      "relatedItemIds": ["t-distribution", "f-distribution"]
+    }
+  ]
+}

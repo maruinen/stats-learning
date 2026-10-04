@@ -1,0 +1,373 @@
+{
+  "version": 1,
+  "sourceVersion": 1,
+  "orderMode": "category-and-item-order",
+  "seed": null,
+  "generatedAt": "2026-10-04T01:55:05.400Z",
+  "cards": [
+    {
+      "itemId": "binomial",
+      "cardId": "pmf"
+    },
+    {
+      "itemId": "binomial",
+      "cardId": "moments"
+    },
+    {
+      "itemId": "binomial",
+      "cardId": "pgf"
+    },
+    {
+      "itemId": "poisson",
+      "cardId": "pmf"
+    },
+    {
+      "itemId": "poisson",
+      "cardId": "moments"
+    },
+    {
+      "itemId": "poisson",
+      "cardId": "pgf"
+    },
+    {
+      "itemId": "hypergeometric",
+      "cardId": "pmf"
+    },
+    {
+      "itemId": "hypergeometric",
+      "cardId": "moments"
+    },
+    {
+      "itemId": "geometric",
+      "cardId": "pmf"
+    },
+    {
+      "itemId": "geometric",
+      "cardId": "moments"
+    },
+    {
+      "itemId": "geometric",
+      "cardId": "pgf"
+    },
+    {
+      "itemId": "negative-binomial",
+      "cardId": "pmf"
+    },
+    {
+      "itemId": "negative-binomial",
+      "cardId": "moments"
+    },
+    {
+      "itemId": "negative-binomial",
+      "cardId": "pgf"
+    },
+    {
+      "itemId": "multinomial",
+      "cardId": "pmf"
+    },
+    {
+      "itemId": "multinomial",
+      "cardId": "moments"
+    },
+    {
+      "itemId": "normal",
+      "cardId": "pdf"
+    },
+    {
+      "itemId": "normal",
+      "cardId": "moments"
+    },
+    {
+      "itemId": "normal",
+      "cardId": "mgf"
+    },
+    {
+      "itemId": "exponential",
+      "cardId": "pdf"
+    },
+    {
+      "itemId": "exponential",
+      "cardId": "moments"
+    },
+    {
+      "itemId": "exponential",
+      "cardId": "mgf"
+    },
+    {
+      "itemId": "gamma-distribution",
+      "cardId": "pdf"
+    },
+    {
+      "itemId": "gamma-distribution",
+      "cardId": "moments"
+    },
+    {
+      "itemId": "gamma-distribution",
+      "cardId": "mgf"
+    },
+    {
+      "itemId": "beta-distribution",
+      "cardId": "pdf"
+    },
+    {
+      "itemId": "beta-distribution",
+      "cardId": "moments"
+    },
+    {
+      "itemId": "cauchy",
+      "cardId": "pdf"
+    },
+    {
+      "itemId": "cauchy",
+      "cardId": "properties"
+    },
+    {
+      "itemId": "lognormal",
+      "cardId": "pdf"
+    },
+    {
+      "itemId": "lognormal",
+      "cardId": "moments"
+    },
+    {
+      "itemId": "lognormal",
+      "cardId": "mgf"
+    },
+    {
+      "itemId": "weibull",
+      "cardId": "pdf"
+    },
+    {
+      "itemId": "weibull",
+      "cardId": "moments"
+    },
+    {
+      "itemId": "logistic",
+      "cardId": "pdf"
+    },
+    {
+      "itemId": "logistic",
+      "cardId": "moments"
+    },
+    {
+      "itemId": "multivariate-normal",
+      "cardId": "pdf"
+    },
+    {
+      "itemId": "multivariate-normal",
+      "cardId": "moments"
+    },
+    {
+      "itemId": "chi-square",
+      "cardId": "pdf"
+    },
+    {
+      "itemId": "chi-square",
+      "cardId": "moments"
+    },
+    {
+      "itemId": "chi-square",
+      "cardId": "mgf"
+    },
+    {
+      "itemId": "t-distribution",
+      "cardId": "construction"
+    },
+    {
+      "itemId": "t-distribution",
+      "cardId": "moments"
+    },
+    {
+      "itemId": "t-distribution",
+      "cardId": "mgf"
+    },
+    {
+      "itemId": "f-distribution",
+      "cardId": "construction"
+    },
+    {
+      "itemId": "f-distribution",
+      "cardId": "moments"
+    },
+    {
+      "itemId": "f-distribution",
+      "cardId": "mgf"
+    },
+    {
+      "itemId": "weak-law",
+      "cardId": "statement"
+    },
+    {
+      "itemId": "clt",
+      "cardId": "statement"
+    },
+    {
+      "itemId": "iterated-expectation",
+      "cardId": "formula"
+    },
+    {
+      "itemId": "kurtosis",
+      "cardId": "formula"
+    },
+    {
+      "itemId": "affine-mgf",
+      "cardId": "formula"
+    },
+    {
+      "itemId": "markov-inequality",
+      "cardId": "statement"
+    },
+    {
+      "itemId": "markov-inequality",
+      "cardId": "derivation"
+    },
+    {
+      "itemId": "chebyshev-inequality",
+      "cardId": "statement"
+    },
+    {
+      "itemId": "chebyshev-inequality",
+      "cardId": "standardized"
+    },
+    {
+      "itemId": "chebyshev-inequality",
+      "cardId": "derivation"
+    },
+    {
+      "itemId": "standard-error-proportion",
+      "cardId": "formula"
+    },
+    {
+      "itemId": "standard-error-proportion",
+      "cardId": "meaning"
+    },
+    {
+      "itemId": "standard-error-of-mean",
+      "cardId": "formula"
+    },
+    {
+      "itemId": "unbiased-estimator",
+      "cardId": "definition"
+    },
+    {
+      "itemId": "consistent-estimator",
+      "cardId": "definition"
+    },
+    {
+      "itemId": "consistent-estimator",
+      "cardId": "sufficient-condition"
+    },
+    {
+      "itemId": "variance-confidence-interval",
+      "cardId": "interval"
+    },
+    {
+      "itemId": "variance-confidence-interval",
+      "cardId": "basis"
+    },
+    {
+      "itemId": "likelihood-ratio-test",
+      "cardId": "statistic"
+    },
+    {
+      "itemId": "likelihood-ratio-test",
+      "cardId": "degrees"
+    },
+    {
+      "itemId": "multiple-regression-normal-equation",
+      "cardId": "normal-equation"
+    },
+    {
+      "itemId": "multiple-regression-normal-equation",
+      "cardId": "standardized"
+    },
+    {
+      "itemId": "simple-regression-slope-se",
+      "cardId": "formula"
+    },
+    {
+      "itemId": "simple-regression-slope-se",
+      "cardId": "covariance"
+    },
+    {
+      "itemId": "simple-regression-slope-se",
+      "cardId": "note"
+    },
+    {
+      "itemId": "factor-analysis-communality",
+      "cardId": "orthogonal"
+    },
+    {
+      "itemId": "factor-analysis-communality",
+      "cardId": "oblique"
+    },
+    {
+      "itemId": "factor-analysis-communality",
+      "cardId": "invariance"
+    },
+    {
+      "itemId": "factor-analysis-loadings",
+      "cardId": "loading"
+    },
+    {
+      "itemId": "factor-analysis-loadings",
+      "cardId": "correlation"
+    },
+    {
+      "itemId": "factor-analysis-explained-variance",
+      "cardId": "contribution"
+    },
+    {
+      "itemId": "factor-analysis-explained-variance",
+      "cardId": "ratio"
+    },
+    {
+      "itemId": "factor-analysis-unique-variance",
+      "cardId": "formula"
+    },
+    {
+      "itemId": "bias-variance-decomposition",
+      "cardId": "formula"
+    },
+    {
+      "itemId": "bias-variance-decomposition",
+      "cardId": "interpretation"
+    },
+    {
+      "itemId": "aic",
+      "cardId": "formula"
+    },
+    {
+      "itemId": "aic",
+      "cardId": "log-likelihood"
+    },
+    {
+      "itemId": "aic",
+      "cardId": "dimension"
+    },
+    {
+      "itemId": "variable-transformation",
+      "cardId": "formula"
+    },
+    {
+      "itemId": "gamma-function",
+      "cardId": "definition"
+    },
+    {
+      "itemId": "gamma-function",
+      "cardId": "integral"
+    },
+    {
+      "itemId": "beta-function",
+      "cardId": "definition"
+    },
+    {
+      "itemId": "beta-gamma-relation",
+      "cardId": "formula"
+    },
+    {
+      "itemId": "t-f-relation",
+      "cardId": "formula"
+    }
+  ]
+}

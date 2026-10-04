@@ -1,0 +1,13 @@
+{
+  "name": "stats-learning",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "validate:data": "node scripts/validate-items.mjs",
+    "build:sequence": "node scripts/build-study-sequence.mjs",
+    "validate:sequence": "node scripts/validate-study-sequence.mjs",
+    "build:gemini-notebook": "node scripts/build-gemini-notebook-source.mjs",
+    "prepare:data": "npm run validate:data && npm run build:sequence && npm run validate:sequence && npm run build:gemini-notebook"
+  }
+}
