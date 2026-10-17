@@ -65,4 +65,8 @@ cp -R index.html study.html sequential.html style.css data assets /Volumes/share
 
 `npm run prepare:data` により、`data/study-sequence.json`を含む公開用データを生成・検証する。`cp`では一覧、項目別学習、全カード単語帳、共通JavaScript、CSS、`data/`を配置する。`scripts/`、`generated/`、`.trash/` は本番公開ディレクトリへ配置しない。`cp` は指定した同名ファイルを上書きするが、配置先にある不要ファイルを削除しない。
 
+### JavaScript変更時のキャッシュバージョン
+
+HTMLやJavaScriptを変更して、ブラウザーに新しいJavaScriptを確実に読み込ませたい場合は、スクリプトURLのクエリ文字列 `?v=...` を新しい値に更新する。項目別学習画面では `study.html` の `assets/js/study-page.js?v=...` を更新する。全カード単語帳では `sequential.html` の `assets/js/sequential-page.js?v=...` と、`assets/js/sequential-page.js` 内の `items-repository.js?v=...` を同じ値に更新する。JavaScriptを変更せず再デプロイするだけの場合や、`data/items.json` などの学習データだけを変更する場合は、通常この値の更新は不要。
+
 詳細は `[design.md](design.md)` および `[requirements.md](requirements.md)` を参照してください。

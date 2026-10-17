@@ -3,7 +3,7 @@
   "sourceVersion": 1,
   "orderMode": "category-and-item-order",
   "seed": null,
-  "generatedAt": "2026-10-04T02:41:38.231Z",
+  "generatedAt": "2026-10-17T12:18:28.026Z",
   "cards": [
     {
       "itemId": "binomial",
@@ -143,19 +143,27 @@
     },
     {
       "itemId": "logistic",
-      "cardId": "pdf"
+      "cardId": "cdf"
     },
     {
       "itemId": "logistic",
       "cardId": "moments"
     },
     {
+      "itemId": "logistic",
+      "cardId": "mgf"
+    },
+    {
       "itemId": "multivariate-normal",
       "cardId": "pdf"
     },
     {
       "itemId": "multivariate-normal",
       "cardId": "moments"
+    },
+    {
+      "itemId": "chi-square",
+      "cardId": "gamma-relation"
     },
     {
       "itemId": "chi-square",
@@ -202,8 +210,16 @@
       "cardId": "statement"
     },
     {
+      "itemId": "delta-method",
+      "cardId": "delta-method"
+    },
+    {
       "itemId": "iterated-expectation",
       "cardId": "formula"
+    },
+    {
+      "itemId": "iterated-expectation",
+      "cardId": "law-of-total-variance"
     },
     {
       "itemId": "kurtosis",
@@ -246,8 +262,8 @@
       "cardId": "formula"
     },
     {
-      "itemId": "unbiased-estimator",
-      "cardId": "definition"
+      "itemId": "consistent-estimator",
+      "cardId": "unbiasedness"
     },
     {
       "itemId": "consistent-estimator",
@@ -256,6 +272,10 @@
     {
       "itemId": "consistent-estimator",
       "cardId": "sufficient-condition"
+    },
+    {
+      "itemId": "consistent-estimator",
+      "cardId": "bias-variance-decomposition"
     },
     {
       "itemId": "variance-confidence-interval",
@@ -267,11 +287,11 @@
     },
     {
       "itemId": "likelihood-ratio-test",
-      "cardId": "statistic"
+      "cardId": "definition"
     },
     {
       "itemId": "likelihood-ratio-test",
-      "cardId": "degrees"
+      "cardId": "statistic"
     },
     {
       "itemId": "multiple-regression-normal-equation",
@@ -326,24 +346,8 @@
       "cardId": "formula"
     },
     {
-      "itemId": "bias-variance-decomposition",
-      "cardId": "formula"
-    },
-    {
-      "itemId": "bias-variance-decomposition",
-      "cardId": "interpretation"
-    },
-    {
       "itemId": "aic",
       "cardId": "formula"
-    },
-    {
-      "itemId": "aic",
-      "cardId": "log-likelihood"
-    },
-    {
-      "itemId": "aic",
-      "cardId": "dimension"
     },
     {
       "itemId": "variable-transformation",

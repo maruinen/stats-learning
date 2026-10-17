@@ -1,4 +1,4 @@
-import { loadLearningData } from './items-repository.js';
+import { loadLearningData } from './items-repository.js?v=20261017-2';
 
 const categoryElement = document.querySelector('#sequential-category');
 const titleElement = document.querySelector('#sequential-title');
@@ -14,6 +14,33 @@ const previousButton = document.querySelector('#previous-card');
 const nextButton = document.querySelector('#next-card');
 let cards;
 let position = 0;
+
+/**
+ * Typesets TeX in a newly rendered element.
+ *
+ * @param {HTMLElement} element Element containing TeX text.
+ * @returns {Promise<void>} A promise resolved after MathJax processing.
+ */
+async function typesetMath(element) {
+    if (window.MathJax?.typesetClear) {
+        window.MathJax.typesetClear([element]);
+    }
+    if (!window.MathJax?.typesetPromise) {
+        const script = document.querySelector('#MathJax-script');
+        if (!script) {
+            throw new Error('数式表示ライブラリを読み込めませんでした。');
+        }
+        await new Promise((resolve, reject) => {
+            script.addEventListener('load', resolve, { once: true });
+            script.addEventListener('error', () => reject(new Error('数式表示ライブラリを読み込めませんでした。')), { once: true });
+            if (window.MathJax?.typesetPromise) {
+                resolve();
+            }
+        });
+    }
+    await window.MathJax?.startup?.promise;
+    await window.MathJax.typesetPromise([element]);
+}
 
 /**
  * Creates a seeded pseudo-random generator.
@@ -153,9 +180,7 @@ function formatAnswerForDisplay(answer) {
  * @returns {Promise<void>} A promise resolved after MathJax processing.
  */
 async function typesetAnswer() {
-    if (window.MathJax?.typesetPromise) {
-        await window.MathJax.typesetPromise([answerElement]);
-    }
+    await typesetMath(answerElement);
 }
 
 /**
@@ -177,10 +202,14 @@ function updateUrl() {
 async function renderCard() {
     const currentCard = cards[position];
     const item = currentCard.item;
+    if (window.MathJax?.typesetClear) {
+        window.MathJax.typesetClear([promptElement, answerElement]);
+    }
     categoryElement.textContent = currentCard.category?.name ?? '';
     titleElement.textContent = item.title;
     labelElement.textContent = currentCard.card.label;
     promptElement.textContent = currentCard.card.prompt;
+    await typesetMath(promptElement);
     answerElement.replaceChildren();
     const answerText = document.createElement('p');
     answerText.textContent = formatAnswerForDisplay(currentCard.card.answer);
@@ -237,7 +266,7 @@ function showError(message) {
 async function init() {
     try {
         const data = await loadLearningData();
-        const sequenceResponse = await fetch('data/study-sequence.json');
+        const sequenceResponse = await fetch('data/study-sequence.json', { cache: 'no-store' });
         if (!sequenceResponse.ok) {
             throw new Error('単語帳の順序データを読み込めませんでした。');
         }

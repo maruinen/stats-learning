@@ -11,10 +11,10 @@
 | `discrete-distributions` | 離散分布 | 二項分布、ポアソン分布、幾何分布など |
 | `continuous-distributions` | 連続分布 | 正規分布、ガンマ分布、t分布など |
 | `probability-foundations` | 確率・モーメント・不等式 | 繰り返し期待値、尖度、モーメント母関数、マルコフ・チェビシェフの不等式 |
-| `estimation-inference` | 推定・信頼区間・検定 | 標準誤差、不偏性、一致性、信頼区間、尤度比検定 |
-| `regression` | 回帰 | 正規方程式、回帰係数の標準誤差 |
-| `multivariate-analysis` | 多変量解析 | 因子負荷量、共通性、寄与率、因子回転、独自因子 |
-| `model-evaluation` | モデル評価・選択 | バイアス・バリアンス分解、AIC |
+| `estimation-inference` | 推定・信頼区間・検定 | 標準誤差、点推定量の不偏性・一致性、信頼区間、尤度比検定 |
+| `regression` | 回帰分析 | 正規方程式、回帰係数の標準誤差 |
+| `factor-analysis` | 因子分析 | 因子負荷量、共通性、寄与率、因子回転、独自因子 |
+| `model-evaluation` | モデル評価・選択 | AIC |
 | `mathematical-foundations` | 数学的基礎 | 変数変換、ガンマ関数、ベータ関数 |
 
 ## 3. データ設計
@@ -24,6 +24,8 @@
 
 ### 3.2. ファイル構造
 JSONの最上位には `version`、`categories`、`items` を置く。`categories` にはカテゴリの `id`、`name`、`description`、`order` を、`items` には以下を置く。
+
+データは「カテゴリ → 項目 → カード」の階層で構成する。カテゴリは項目をまとめる分類、項目は1つの学習テーマとカード群、カードは個別の問い (`prompt`) と答え (`answer`) の組である。各項目は `categoryId` で1つのカテゴリに属し、`cards` 配列に複数のカードを持つ。
 
 | フィールド | 必須 | 用途 |
 | --- | --- | --- |

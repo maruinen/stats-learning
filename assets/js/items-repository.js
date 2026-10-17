@@ -5,7 +5,7 @@
  * @throws {Error} When the data cannot be loaded or has an invalid shape.
  */
 export async function loadLearningData() {
-    const response = await fetch('data/items.json');
+    const response = await fetch('data/items.json', { cache: 'no-store' });
 
     if (!response.ok) {
         throw new Error('学習データを読み込めませんでした。');

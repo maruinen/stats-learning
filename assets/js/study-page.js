@@ -8,9 +8,9 @@ const relatedItemsElement = document.querySelector('#related-items');
 const errorElement = document.querySelector('#study-error');
 
 /**
- * Renders MathJax for an answer only once after it becomes visible.
+ * Renders MathJax for a newly added flashcard element.
  *
- * @param {HTMLElement} element Newly visible answer element.
+ * @param {HTMLElement} element Element containing TeX text.
  * @returns {Promise<void>} A promise that resolves after MathJax processing.
  */
 async function typesetMath(element) {
@@ -18,16 +18,23 @@ async function typesetMath(element) {
         return;
     }
 
-    if (window.MathJax?.typesetPromise) {
-        await window.MathJax.typesetPromise([element]);
-        element.dataset.mathTypeset = 'true';
-        return;
+    if (!window.MathJax?.typesetPromise) {
+        const script = document.querySelector('#MathJax-script');
+        if (!script) {
+            throw new Error('数式表示ライブラリを読み込めませんでした。');
+        }
+        await new Promise((resolve, reject) => {
+            script.addEventListener('load', resolve, { once: true });
+            script.addEventListener('error', () => reject(new Error('数式表示ライブラリを読み込めませんでした。')), { once: true });
+            if (window.MathJax?.typesetPromise) {
+                resolve();
+            }
+        });
     }
 
-    window.addEventListener('load', async () => {
-        await window.MathJax?.typesetPromise([element]);
-        element.dataset.mathTypeset = 'true';
-    }, { once: true });
+    await window.MathJax.startup?.promise;
+    await window.MathJax.typesetPromise([element]);
+    element.dataset.mathTypeset = 'true';
 }
 
 /**
@@ -77,6 +84,7 @@ function createFlashcard(card) {
     label.textContent = card.label;
     const prompt = document.createElement('h2');
     prompt.textContent = card.prompt;
+    prompt.className = 'flashcard-prompt';
     const answer = document.createElement('div');
     answer.className = 'flashcard-answer';
     answer.hidden = true;
@@ -169,6 +177,7 @@ async function init() {
         categoryElement.textContent = category?.name ?? '';
         summaryElement.textContent = item.summary;
         cardsElement.replaceChildren(...item.cards.map(createFlashcard));
+        await Promise.all([...cardsElement.querySelectorAll('.flashcard-prompt')].map(typesetMath));
         renderRelatedItems(data, item.relatedItemIds ?? []);
     } catch (error) {
         showError(error.message);
