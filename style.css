@@ -351,6 +351,7 @@ h2 {
 
 .flashcard-answer p {
     overflow-wrap: anywhere;
+    white-space: pre-line;
 }
 
 .flashcard-answer mjx-container {

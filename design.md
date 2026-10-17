@@ -10,7 +10,7 @@
 | --- | --- | --- |
 | `discrete-distributions` | 離散分布 | 二項分布、ポアソン分布、幾何分布など |
 | `continuous-distributions` | 連続分布 | 正規分布、ガンマ分布、t分布など |
-| `probability-foundations` | 確率・モーメント・不等式 | 繰り返し期待値、尖度、MGF、マルコフ・チェビシェフの不等式 |
+| `probability-foundations` | 確率・モーメント・不等式 | 繰り返し期待値、尖度、モーメント母関数、マルコフ・チェビシェフの不等式 |
 | `estimation-inference` | 推定・信頼区間・検定 | 標準誤差、不偏性、一致性、信頼区間、尤度比検定 |
 | `regression` | 回帰 | 正規方程式、回帰係数の標準誤差 |
 | `multivariate-analysis` | 多変量解析 | 因子負荷量、共通性、寄与率、因子回転、独自因子 |
@@ -35,7 +35,7 @@ JSONの最上位には `version`、`categories`、`items` を置く。`categorie
 | `cards` | 必須 | フラッシュカードの配列 |
 | `relatedItemIds` | 任意 | 関連項目への導線となるIDの配列 |
 
-各 `cards` 要素には `id`、`label`、`prompt`、`answer` を必須で置き、必要に応じて `note` を追加する。`answer` と `note` はMathJaxで表示できるLaTexを含むテキストとする。カードは「公式」「定義」「性質」「導出」「注意点」を区別なく表せるため、分布固有の `mean` や `mgf` などの固定フィールドは設けない。
+各 `cards` 要素には `id`、`label`、`prompt`、`answer` を必須で置き、必要に応じて `note` を追加する。`answer` と `note` はMathJaxで表示できるLaTexを含むテキストとする。カードは「公式」「定義」「性質」「導出」「注意点」を区別なく表せるため、分布固有の `mean` やモーメント母関数などの固定フィールドは設けない。
 
 ### 3.3. 記述例
 

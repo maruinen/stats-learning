@@ -2,6 +2,7 @@
 # Project management files
 .github/
 .trash/
+generated/
 todo.md
 items.md
 GEMINI.md

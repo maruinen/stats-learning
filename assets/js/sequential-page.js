@@ -139,7 +139,10 @@ function groupSequenceEntries(entries) {
 function formatAnswerForDisplay(answer) {
     const trimmedAnswer = answer.trim();
     if (trimmedAnswer.startsWith('\\(') && trimmedAnswer.endsWith('\\)')) {
-        return `\\[${trimmedAnswer.slice(2, -2)}\\]`;
+        const formula = trimmedAnswer.slice(2, -2);
+        if (!formula.includes('\\(') && !formula.includes('\\)')) {
+            return `\\[${formula}\\]`;
+        }
     }
     return answer;
 }
