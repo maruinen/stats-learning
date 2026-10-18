@@ -359,15 +359,38 @@
       "id": "consistent-estimator",
       "categoryId": "estimation-inference",
       "title": "点推定量の性質",
-      "summary": "点推定量の不偏性、一致性、平均二乗誤差の分解に関する性質。",
-      "tags": ["点推定量", "不偏推定量", "一致推定量", "不偏性", "一致性", "確率収束", "チェビシェフの不等式", "バイアス", "バリアンス"],
+      "summary": "点推定量の不偏性、一致性、有効性、平均二乗誤差の分解に関する性質。",
+      "tags": ["点推定量", "不偏推定量", "一致推定量", "不偏性", "一致性", "有効推定量", "フィッシャー情報量", "クラメール・ラオの下限", "確率収束", "チェビシェフの不等式", "バイアス", "バリアンス"],
       "cards": [
         {"id": "unbiasedness", "label": "不偏性", "prompt": "推定量 \\(\\hat{\\theta}\\) が不偏である条件は。", "answer": "\\(E[\\hat{\\theta}]=\\theta\\)"},
         {"id": "definition", "label": "定義", "prompt": "一致推定量の確率収束による定義は。", "answer": "任意の \\(\\varepsilon>0\\) に対し、\\(P(|\\hat{\\theta}_n-\\theta|\\ge\\varepsilon)\\to0\\)。"},
         {"id": "sufficient-condition", "label": "十分条件", "prompt": "期待値と分散で表す一致性の十分条件は。", "answer": "\\(E[\\hat{\\theta}_n]\\to\\theta\\) かつ \\(V[\\hat{\\theta}_n]\\to0\\)。"},
-        {"id": "bias-variance-decomposition", "label": "バイアス・バリアンス分解", "prompt": "点推定量の平均二乗誤差は、バイアスと分散にどのように分解されるか。", "answer": "\\(E_{\\theta}[(\\hat{\\theta}-\\theta)^2]=(E_{\\theta}[\\hat{\\theta}]-\\theta)^2+V_{\\theta}[\\hat{\\theta}]\\)"}
+        {"id": "bias-variance-decomposition", "label": "バイアス・バリアンス分解", "prompt": "点推定量の平均二乗誤差は、バイアスと分散にどのように分解されるか。", "answer": "\\(E_{\\theta}[(\\hat{\\theta}-\\theta)^2]=(E_{\\theta}[\\hat{\\theta}]-\\theta)^2+V_{\\theta}[\\hat{\\theta}]\\)"},
+        {"id": "cramer-rao-bound", "label": "有効性", "prompt": "不偏推定量 \\(\\hat{\\theta}\\) に対するクラメール・ラオの下限と、有効推定量の定義は。", "answer": "標本全体 \\(X\\) のフィッシャー情報量を \\(J_n(\\theta)=E_{\\theta}\\left[\\left(\\frac{\\partial}{\\partial\\theta}\\log f(X;\\theta)\\right)^2\\right]\\) とすると、\\(V_{\\theta}[\\hat{\\theta}]\\geq J_n(\\theta)^{-1}\\)。この下限を等号で達成する不偏推定量を有効推定量という。"}
       ],
       "relatedItemIds": ["chebyshev-inequality", "weak-law"]
+    },
+    {
+      "id": "sufficient-statistic",
+      "categoryId": "estimation-inference",
+      "title": "十分統計量",
+      "summary": "標本の情報を母数に関して損なわずに要約する統計量。",
+      "tags": ["十分統計量", "条件付き分布", "推定"],
+      "cards": [
+        {"id": "definition", "label": "定義", "prompt": "統計量 \\(T(X)\\) が母数 \\(\\theta\\) の十分統計量である条件は。", "answer": "\\(P(X=x\\mid T(X)=t,\\theta)=P(X=x\\mid T(X)=t)\\)。すなわち、\\(T(X)\\) を条件とした標本 \\(X\\) の条件付き分布が \\(\\theta\\) に依存しない。"}
+      ],
+      "relatedItemIds": ["consistent-estimator", "likelihood-ratio-test"]
+    },
+    {
+      "id": "method-of-moments",
+      "categoryId": "estimation-inference",
+      "title": "モーメント法",
+      "summary": "標本モーメントを母モーメントに等置して母数を推定する方法。",
+      "tags": ["モーメント法", "標本モーメント", "母モーメント", "点推定"],
+      "cards": [
+        {"id": "estimation", "label": "推定方法", "prompt": "モーメント法では母数をどのように推定するか。", "answer": "母数が \\(q\\) 個の場合、1次モーメントと2次から \\(q\\) 次までのモーメントを、それぞれ対応する母集団のモーメントに等置して、得られる \\(q\\) 個の方程式を解く。\n1次モーメント: \\(\\frac{1}{n}\\sum_{i=1}^{n}X_i=E_{\\theta}[X]\\)\n\\(k\\) 次モーメント（\\(k\\ge2\\)）: \\(\\frac{1}{n}\\sum_{i=1}^{n}(X_i-\\bar{X})^k=E_{\\theta}[(X-E_{\\theta}[X])^k]\\)"}
+      ],
+      "relatedItemIds": ["consistent-estimator", "sufficient-statistic"]
     },
     {
       "id": "variance-confidence-interval",

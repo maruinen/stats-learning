@@ -3,7 +3,7 @@
   "sourceVersion": 1,
   "orderMode": "category-and-item-order",
   "seed": null,
-  "generatedAt": "2026-10-17T12:18:28.026Z",
+  "generatedAt": "2026-10-18T10:46:19.000Z",
   "cards": [
     {
       "itemId": "binomial",
@@ -276,6 +276,18 @@
     {
       "itemId": "consistent-estimator",
       "cardId": "bias-variance-decomposition"
+    },
+    {
+      "itemId": "consistent-estimator",
+      "cardId": "cramer-rao-bound"
+    },
+    {
+      "itemId": "sufficient-statistic",
+      "cardId": "definition"
+    },
+    {
+      "itemId": "method-of-moments",
+      "cardId": "estimation"
     },
     {
       "itemId": "variance-confidence-interval",
