@@ -292,7 +292,7 @@
       "summary": "分布の裾の重さや中心付近の集中度を表す指標。",
       "tags": ["尖度", "モーメント", "分散"],
       "cards": [
-        {"id": "formula", "label": "定義", "prompt": "尖度の定義は。", "answer": "\\(E[(X-E[X])^4]/V[X]^2\\)"}
+        {"id": "formula", "label": "定義", "prompt": "尖度の定義は。", "answer": "\\(\\frac{E[(X-E[X])^4]}{V[X]^2}\\)"}
       ],
       "relatedItemIds": []
     },
@@ -400,7 +400,7 @@
       "tags": ["信頼区間", "母分散", "カイ二乗分布"],
       "cards": [
         {"id": "interval", "label": "信頼区間", "prompt": "母分散σ²の1-α信頼区間は。", "answer": "\\(\\frac{(n-1)s^2}{\\chi^2_{\\alpha/2}(n-1)}\\le\\sigma^2\\le\\frac{(n-1)s^2}{\\chi^2_{1-\\alpha/2}(n-1)}\\)"},
-        {"id": "basis", "label": "根拠", "prompt": "母分散の信頼区間で使うカイ二乗統計量は。", "answer": "\\(T^2=\\sum(X_i-\\bar{X})^2\\) とすると、\\(T^2/\\sigma^2\\) は自由度 \\(n-1\\) のカイ二乗分布に従う。"}
+        {"id": "basis", "label": "根拠", "prompt": "正規母集団の標本から母分散の信頼区間を導くとき、\\(\\sum_i(X_i-\\bar{X})^2/\\sigma^2\\) はどの分布に従うか。", "answer": "自由度 \\(n-1\\) のカイ二乗分布に従う。"}
       ],
       "relatedItemIds": ["chi-square"]
     },
@@ -435,7 +435,7 @@
       "summary": "単回帰における回帰係数推定量の標準誤差。",
       "tags": ["単回帰", "回帰係数", "標準誤差", "共分散行列"],
       "cards": [
-        {"id": "formula", "label": "公式", "prompt": "切片なし単回帰モデル \\(y_i=\\alpha z_i+\\varepsilon_i\\) で、誤差の分散が \\(\\sigma^2\\) のとき、最小二乗推定量 \\(\\hat{\\alpha}\\) の標準誤差は。", "answer": "\\(SE(\\hat{\\alpha})=\\sqrt{\\sigma^2/(ns_z^2)}\\)"},
+        {"id": "formula", "label": "公式", "prompt": "切片なし単回帰モデル \\(y_i=\\alpha z_i+\\varepsilon_i\\) で、誤差の分散が \\(\\sigma^2\\) のとき、最小二乗推定量 \\(\\hat{\\alpha}\\) の標準誤差は。", "answer": "\\(SE(\\hat{\\alpha})=\\sqrt{\\frac{\\sigma^2}{ns_z^2}}\\)"},
         {"id": "covariance", "label": "導出の要点", "prompt": "線形回帰モデル \\(y=X\\beta+\\varepsilon\\) で、誤差の共分散行列が \\(\\sigma^2I\\) のとき、最小二乗推定量 \\(\\hat{\\beta}\\) の共分散行列は。", "answer": "\\(\\operatorname{Cov}[\\hat{\\beta}]=\\sigma^2(X^TX)^{-1}\\)"},
         {"id": "note", "label": "注意点", "prompt": "切片なし単回帰で1つの回帰係数を推定した後、残差分散の推定に使う自由度はいくつか。", "answer": "自由度は \\(n-1\\) であることに注意する。"}
       ],
